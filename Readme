@@ -1,6 +1,8 @@
+# For Practice Personal Project
+
 host    all             all             192.168.1.0/24          md5 -> pg_hba.conf
-sudo docker-compose exec web sh 
-docker-compose run web python manage.py migrate
+sudo docker-compose exec web sh
 docker-compose run web python manage.py createsuperuser
+
 
 <!-- https://stackoverflow.com/questions/38466190/cant-connect-to-postgresql-on-port-5432 -->
