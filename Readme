@@ -1,4 +1,8 @@
 # For Practice Personal Project
+> Django integration
+  ariadne_django package can be used to add GraphQL APIs implemented with Ariadne to Django projects.
+
+
 
 host    all             all             192.168.1.0/24          md5 -> pg_hba.conf
 sudo docker-compose exec web sh
