@@ -1,0 +1,39 @@
+extend type Query {
+    laboratorystorage(
+        sort: String
+        OrderBy: String
+        limit: Int
+        offset: Int
+        search: String
+    ): [LaboratoryStorage]
+    getLaboratoryStorage(id: ID!): LaboratoryStorage
+    searchLaboratoryStorage(search: String!): [LaboratoryStorage]
+}
+
+
+
+extend type Mutation {
+    deleteLaboratoryStorage(id: ID!):Boolean
+    createLaboratoryStorage(  
+    name: String!
+    location: String!
+    ): LaboratoryStorage    
+    
+    updateLaboratoryStorage(id:ID!,
+    name: String!
+    location: String!
+    ): LaboratoryStorage
+}
+
+type LaboratoryStorage {
+    id: ID
+    name: String!
+    location: String!
+    orders: [Order]
+    created: Date
+    lastUpdated: Date
+    isDeleted: Boolean
+    addOrder(id: ID!): Boolean
+    addOrderList(orderList: [String]): Boolean
+    removeOrderList(orderList: [String]): Boolean
+}

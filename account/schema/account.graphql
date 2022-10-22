@@ -1,0 +1,12 @@
+extend type Mutation {
+    verifyToken(token: String!): VerifyToken
+    refreshToken(token: String!): RefreshToken
+    tokenAuth(username: String!, password:String!): TokenAuth
+}
+
+type User {
+    id: ID
+    first_name: String
+    last_name: String
+    email: String
+}

@@ -1,0 +1,27 @@
+extend type Query {
+    hospitals(
+        sort: String
+        OrderBy: String
+        limit: Int
+        offset: Int
+        search: String
+    ): [Hospital]
+    getHospital(id: ID!): Hospital
+    searchHospital( search: String!): [Hospital]
+}
+
+extend type Mutation {
+    createHospital(name: String, address: String): Hospital
+    updateHospital(id: ID!, name: String!, address: String!): Hospital
+    deleteHospital(id: ID!):Boolean
+}
+
+type Hospital {
+    id: ID
+    name: String
+    address: String
+    created: Date
+    lastUpdated: Date
+    isDeleted: Boolean
+}
+

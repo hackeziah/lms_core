@@ -1,0 +1,11 @@
+*.pyc
+**/*.pyc
+*.sqlite3
+data/
+env/
+data/
+data
+__pycache__/
+*.py[cod]
+*$py.class
+*.log

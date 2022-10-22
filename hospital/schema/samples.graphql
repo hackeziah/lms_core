@@ -1,0 +1,27 @@
+extend type Query {
+    samples(
+        sort: String
+        OrderBy: String
+        limit: Int
+        offset: Int
+        search: String
+    ): [Sample]
+    getSample(id: ID!): Sample
+    searchSample(search: String!): [Sample]
+}
+
+
+extend type Mutation {
+    deleteSample(id: ID!):Boolean
+    createSample(sampleId: String!): Sample    
+    updateSample(id:ID!, sampleId: String!): Sample
+}
+
+type Sample {
+    id: ID
+    sampleId: String!
+    patient: Patient
+    created: Date
+    lastUpdated: Date
+    isDeleted: Boolean
+}

@@ -1,0 +1,45 @@
+extend type Query {
+
+    patients(
+        sort: String
+        OrderBy: String
+        limit: Int
+        offset: Int
+        search: String
+    ): [Patient]
+    getPatient(id: ID!): Patient
+    searchPatient(search: String!): [Patient]
+}
+
+
+extend type Mutation {
+    deletePatient(id: ID!):Boolean
+    createPatient(  
+    firstName: String
+    middleName: String
+    lastName: String
+    address:String
+    phoneNumber:String
+    ): Patient    
+    
+    updatePatient(
+        id:ID!,
+        firstName: String!,
+        middleName: String,
+        lastName: String!,
+        address: String!,
+        phoneNumber: String
+    ): Patient
+}
+
+type Patient {
+    id: ID
+    firstName: String
+    middleName: String
+    lastName: String
+    address: String
+    phoneNumber: String
+    created: Date
+    lastUpdated: Date
+    isDeleted: Boolean
+}

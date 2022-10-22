@@ -1,0 +1,62 @@
+extend type Query {
+    orders(
+        sort: String
+        OrderBy: String
+        limit: Int
+        offset: Int
+        search: String
+    ): [Order]
+    getOrder(id:ID!): Order
+
+    # getOrder(id: ID!): Order
+    # searchOrder(search: String!): [Order]
+}
+
+extend type Mutation {
+    createOrder(  
+    internalId: String
+    dateSampleTaken: Date
+    ): Order   
+
+}
+
+type Order {
+    id: ID
+    internalId: String
+    dateSampleTaken: Date
+    created: Date
+    lastUpdated: Date
+    isDeleted: Boolean
+    sample: Sample
+    hospital: Hospital
+    physician: Physician
+
+    addHospital(
+    name: String!, 
+    address: String!
+    ): Boolean
+
+    addPhysician(
+    firstName: String!,
+    middleName: String!, 
+    lastName: String!, 
+    address: String!,
+    phoneNumber: String!,
+    ): Boolean
+
+
+    addSample(
+    sampleId: String!,
+    patient: PatienInput!
+    ): Boolean
+
+   
+}
+
+input PatienInput {
+    firstName: String!,
+    middleName: String!, 
+    lastName: String!, 
+    address: String!,
+    phoneNumber: String!
+}
